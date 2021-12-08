@@ -1,3 +1,8 @@
+body {
+  background-image: url("../img/petal_faling_img.gif");
+  background-size: contain;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -6,34 +11,46 @@
 }
 
 .item_Main {
+  background-color: whitesmoke;
   width: 30%;
   min-width: 375px;
 }
 
 .item_Text {
+  background-color: whitesmoke;
   width: 30%;
   text-align: center;
   min-width: 375px;
 }
 
 .item_Icon {
+  background-color: whitesmoke;
   width: 30%;
+  padding-top: 20px;
   min-width: 375px;
 }
 
+.item_Icon div {
+  background-color: whitesmoke;
+  width: 50%;
+  text-align: center;
+}
+
 .item_Photo {
+  background-color: whitesmoke;
   width: 30%;
   min-width: 375px;
 }
 
 .item_GuestBook {
+  background-color: whitesmoke;
   width: 30%;
   min-width: 375px;
 }
 
 .item_Blank {
+  background-color: rgb(205, 213, 221);
   width: 30%;
   flex-basis: 15px;
-  background-color: lightslategray;
   min-width: 375px;
 }
