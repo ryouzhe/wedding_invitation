@@ -105,6 +105,15 @@ body {
   overflow: hidden;
 }
 
+.item_LoadMap {
+  background-color: whitesmoke;
+  width: 100%;
+  max-width: 800px;
+  min-width: 375px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .item_GuestBook {
   background-color: whitesmoke;
   width: 100%;
