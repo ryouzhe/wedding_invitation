@@ -114,11 +114,74 @@ body {
   padding-bottom: 20px;
 }
 
-.item_GuestBook {
+.item_MessageInput {
+  background-color: whitesmoke;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  min-width: 375px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.item_MessageInput ul {
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 80%;
+}
+
+.item_MessageInput li {
+  border-bottom: 0.5px solid gray;
+  padding: 10px 0;
+}
+
+.item_MessageInput span {
+  display: inline-block;
+  text-align: left;
+  width: 20%;
+  font-size: 0.9rem;
+}
+
+.item_MessageInput input {
+  background-color: whitesmoke;
+  border: none;
+  width: 75%;
+}
+
+.item_MessageInput input:focus {
+  outline: none;
+}
+
+.item_MessageInput button {
+  background-color: burlywood;
+  border: none;
+  width: 80%;
+  height: 4vh;
+  box-shadow: 1px 1px 1px black;
+  transition-duration: 0.3s;
+}
+
+.item_MessageInput button:active {
+  box-shadow: none;
+}
+
+.item_MessageList {
   background-color: whitesmoke;
   width: 100%;
   max-width: 800px;
   min-width: 375px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.item_MessageList div {
+  background-color: white;
+  width: 80%;
+  border: 0.5px solid gray;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .item_Blank {
