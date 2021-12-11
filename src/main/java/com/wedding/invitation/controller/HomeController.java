@@ -1,6 +1,7 @@
 package com.wedding.invitation.controller;
 
 import com.wedding.invitation.domain.GuestBook;
+import com.wedding.invitation.dto.GuestBookDTO;
 import com.wedding.invitation.service.GuestBookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String Home(Model model) {
-        List<GuestBook> MsgList = guestBookService.findGuestBookList();
+        List<GuestBookDTO> MsgList = guestBookService.findGuestBookList();
         if(!MsgList.isEmpty()) model.addAttribute("MsgList", MsgList);
 
         return "index";

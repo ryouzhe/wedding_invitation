@@ -107,7 +107,11 @@
             <p>아직 작성된 메시지가 없습니다.</p>
         </div>
         <div class="item_MessageList" th:if="${not #strings.isEmpty(MsgList)}">
-            <div>있음</div>
+            <div th:each="list : ${MsgList}">
+                <span th:text="${list.cmtName}" style="float: left">작성자</span>
+                <span th:text="${list.createdDate}" style="float: right">작성날짜</span><br />
+                <p th:text="${list.cmtMsg}">메시지</p>
+            </div>
         </div>
     </div>
     <script type="text/javascript">

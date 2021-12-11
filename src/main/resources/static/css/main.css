@@ -133,7 +133,7 @@ body {
 }
 
 .item_MessageInput li {
-  border-bottom: 0.5px solid gray;
+  border-bottom: 1px solid gray;
   padding: 10px 0;
 }
 
@@ -170,6 +170,9 @@ body {
 .item_MessageList {
   background-color: whitesmoke;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 800px;
   min-width: 375px;
   padding-top: 20px;
@@ -178,10 +181,16 @@ body {
 
 .item_MessageList div {
   background-color: white;
-  width: 80%;
-  border: 0.5px solid gray;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 71%;
+  border: 1px solid gray;
+  padding: 10px 20px 0px 20px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.item_MessageList span {
+  color: gray;
+  font-style: italic;
 }
 
 .item_Blank {
