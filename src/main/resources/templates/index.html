@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wedding Invitation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="/css/index.css" rel="stylesheet" />
+    <!-- <link href="../static/css/index.css" rel="stylesheet" /> -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5ekq0jcx0v&callback=initMap"></script>
-    <script type="text/javascript" src="js/common.js" ></script>
-
+    <script type="text/javascript" src="/js/common.js" ></script>
+    <!-- <script type="text/javascript" src="../static/js/common.js" ></script> -->
 </head>
 <body>
     <div class="container">
         <div class="item_Main">
-            <img src="img/main_img.jpg" style="width: 100%;" alt=""/>
+            <img src="/img/main_img.jpg" style="width: 100%;" alt=""/>
+            <!-- <img src="../static/img/main_img.jpg" style="width: 100%;" alt=""/> -->
         </div>
         <div class="item_TextTitle">
             결혼합니다.
@@ -41,34 +43,10 @@
             Wedding Photo
         </div>
         <div class="item_Photo">
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_1.jpg" style="width:100%;" alt=""/>
-                </div>
-            </div>
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_2.jpg" style="width:100%;" alt=""/>
-                </div>
-            </div>
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_3.jpg" style="width:100%;" alt=""/>
-                </div>
-            </div>
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_4.jpg" style="width:100%;" alt=""/>
-                </div>
-            </div>
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_5.jpg" style="width:100%;" alt=""/>
-                </div>
-            </div>
-            <div class="item_PhotoContainer">
-                <div class="item_PhotoCard">
-                    <img src="img/photo_6.jpg" style="width:100%;" alt=""/>
+            <div th:each="list : ${PhotoList}" class="item_PhotoContainer">
+                <div class="item_PhotoCard" th:onclick="view_PhotoCard([[${list}]]);">
+                    <img th:src="@{/img/} + ${list}" style="width:100%;" alt="" />
+                    <!-- <img src="../static/img/photo_1.jpg" width="100%" alt="" /> -->
                 </div>
             </div>
         </div>
@@ -89,18 +67,18 @@
                 <ul>
                     <li>
                         <span>Name</span>:
-                        <input type="text" id="cmtName" name="cmtName" maxlength="10" >
+                        <input type="text" id="cmtName" name="cmtName" maxlength="10" required >
                     </li>
                     <li>
                         <span>Password</span>:
-                        <input type="password" id="cmtPwd" name="cmtPwd" maxlength="16" >
+                        <input type="password" id="cmtPwd" name="cmtPwd" maxlength="16" required >
                     </li>
                     <li>
                         <span>Message</span>:
-                        <input type="text" id="cmtMsg" name="cmtMsg" maxlength="300" >
+                        <input type="text" id="cmtMsg" name="cmtMsg" maxlength="300" required >
                     </li>
                 </ul>
-                <button type="button" name="msgSubmit" onclick="MsgWrite()">축하메시지 남기기</button>  
+                <button type="submit" name="msgSubmit">축하메시지 남기기</button>  
             </form>
         </div>
         <div class="item_TextArea" th:if="${#strings.isEmpty(MsgList)}">
@@ -109,7 +87,9 @@
         <div class="item_MessageList" th:if="${not #strings.isEmpty(MsgList)}">
             <div th:each="list : ${MsgList}">
                 <span th:text="${list.cmtName}" style="float: left">작성자</span>
-                <span th:text="${list.createdDate}" style="float: right">작성날짜</span><br />
+                <span th:text="${list.createdDate}" style="float: right">작성날짜&nbsp
+                    <i class="far fa-trash-alt"></i>
+                </span><br />
                 <p th:text="${list.cmtMsg}">메시지</p>
             </div>
         </div>
@@ -128,7 +108,9 @@
         function initMap() {
             map = new naver.maps.Map('map', {
                 center: new naver.maps.LatLng(35.172422, 129.059622),
-                zoom: 17
+                zoom: 17,
+                scaleControl: false,
+                mapDataControl: false,
             });
             marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(35.172422, 129.059622),

@@ -1,5 +1,8 @@
-function MsgWrite() {
-    let form = document.getElementById("msgForm");
-    form.submit();
-//  validate 확인해야함
+function view_PhotoCard(filename) {
+  const Y_pos = window.scrollY || document.documentElement.scrollTop;
+  location.href = "/photoCard/" + filename;
+}
+
+function close_PhotoCard() {
+  history.back();
 }

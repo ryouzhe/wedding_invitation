@@ -1,6 +1,7 @@
 body {
   background-image: url("../img/petal_faling_img.gif");
   background-size: contain;
+  margin: auto;
   display: flex;
   justify-content: center;
 }
@@ -72,6 +73,10 @@ body {
   text-align: center;
 }
 
+.item_Icon div:hover {
+  cursor: pointer;
+}
+
 .item_Photo {
   background-color: whitesmoke;
   width: 100%;
@@ -103,6 +108,10 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.item_PhotoCard:hover {
+  cursor: pointer;
 }
 
 .item_LoadMap {
@@ -163,6 +172,10 @@ body {
   transition-duration: 0.3s;
 }
 
+.item_MessageInput button:hover {
+  cursor: pointer;
+}
+
 .item_MessageInput button:active {
   box-shadow: none;
 }
@@ -200,3 +213,9 @@ body {
   max-width: 800px;
   min-width: 375px;
 }
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+}
+
+
