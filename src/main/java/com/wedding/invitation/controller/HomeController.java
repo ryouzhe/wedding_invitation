@@ -42,10 +42,12 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @GetMapping("/photoCard/{filename}")
-    public String PhotoCard(@PathVariable String filename, Model model) {
-        model.addAttribute("filename", filename);
+    @GetMapping("/photoCard/{photoNum}")
+    public String PhotoCard(@PathVariable int photoNum, Model model) {
+        model.addAttribute("photoNum", photoNum);
 
+        List<String> photoList = homeService.PhotoList();
+        model.addAttribute("PhotoList", photoList);
         return "photoBox";
     }
 }

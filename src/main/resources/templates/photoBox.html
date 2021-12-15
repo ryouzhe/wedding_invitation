@@ -7,26 +7,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link href="/css/photoBox.css" rel="stylesheet" />
     <!-- <link href="../static/css/photoBox.css" rel="stylesheet" /> -->
-    <script type="text/javascript" src="/js/common.js" ></script>
-    <!-- <script type="text/javascript" src="../static/js/common.js" ></script> -->
 </head>
 <body>
-    <div class="photo_card_wrap">
+    <div class="photo_card_container">
         <div class="photo_card_close">
             <i id="close_icon" class="far fa-times-circle fa-3x" onclick="close_PhotoCard()"></i>
         </div>
-        <div class="photo_card_box" th:style="'background-image:url(' + '/img/' + ${filename} + ');'">
-            <br />
+        <div class="photo_card_wrap">
+            <div class="slide_arrow">
+                <div onclick="movePre()">&LeftAngleBracket;</div>
+            </div>
+            <div id="photo_view" class="slide_view">
+                <div id="photo_wrap" class="slide_wrap">
+                    <div class="slide_item"  th:each="list : ${PhotoList}"
+                         th:style="'background-image:url(' + @{/img/} + ${list} + ');'"></div>
+                </div>
+            </div>
+            <div class="slide_arrow">
+                <div onclick="moveNext()">&RightAngleBracket;</div>
+            </div>
         </div>
     </div>
-<script>
-    let width = window.outerWidth;
-    let close_icon = document.getElementById("close_icon");
-    if(width <= 500) {
-        close_icon.className = "far fa-times-circle fa-2x";
-        close_icon.style.paddingTop = "5px";
-        close_icon.style.paddingRight = "5px";
-    }
-</script>
+    <script type="text/javascript" th:inline="javascript">
+        let selected_index = [[${photoNum}]];   // 선택된 사진 index
+    </script>
+    <script type="text/javascript" src="/js/photo.js" ></script>
+    <!-- <script type="text/javascript" src="../static/js/common.js" ></script> -->
+    <script>
+        let width = window.outerWidth;
+        let close_icon = document.getElementById("close_icon");
+        if(width <= 500) {
+            close_icon.className = "far fa-times-circle fa-2x";
+            close_icon.style.paddingTop = "5px";
+            close_icon.style.paddingRight = "5px";
+        }
+    </script>
 </body>
 </html>
