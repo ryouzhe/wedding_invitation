@@ -47,12 +47,14 @@ function movePre() {
 function moveNext() {
     let moveVal = 0;
 
-    moveVal = (slide_index - init_index) * view_width;
+    if (slide_index === selected_index) moveVal = -view_width;
+    else if (slide_index < selected_index) moveVal = (selected_index - (slide_index + 1)) * view_width;
+    else if (slide_index > selected_index) moveVal = -(slide_index - (selected_index - 1)) * view_width;;
     slide_index += 1;
     console.log(slide_index);
 
     slide_wrap.style.transition = slide_speed + "ms";
-    slide_wrap.style.transform = "translate(-" + moveVal + "px, 0px)";
+    slide_wrap.style.transform = "translate(" + moveVal + "px, 0px)";
     // console.log(moveVal);
 
     if (slide_index === last_index + 1) {

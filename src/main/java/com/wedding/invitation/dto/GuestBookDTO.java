@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 @Data
 @NoArgsConstructor
 public class GuestBookDTO {
+    private Long cmtId;
     private String cmtName;
     private String cmtPwd;
     private String cmtMsg;
@@ -18,6 +19,7 @@ public class GuestBookDTO {
 
     @Builder
     public GuestBookDTO(GuestBook guestBook) {
+        this.cmtId = guestBook.getId();
         this.cmtName = guestBook.getCmtName();
         this.cmtPwd = guestBook.getCmtPwd();
         this.cmtMsg = guestBook.getCmtMsg();

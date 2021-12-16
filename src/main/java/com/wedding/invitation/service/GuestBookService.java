@@ -32,8 +32,12 @@ public class GuestBookService {
         return result;
     }
 
-    /* 축하메시지 수정 위한 단건 조회 */
+    /* 축하메시지 수정,삭제 위한 단건 조회 */
     public GuestBook findGuestBook(Long guestBookId) {
         return guestBookRepository.findOne(guestBookId);
     }
+
+    /* 축하메시지 삭제 */
+    @Transactional
+    public void MsgDelete(GuestBook guestBook) { guestBookRepository.delete(guestBook); }
 }

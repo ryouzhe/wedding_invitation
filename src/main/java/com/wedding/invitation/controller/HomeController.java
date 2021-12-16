@@ -7,9 +7,7 @@ import com.wedding.invitation.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class HomeController {
     @GetMapping("/")
     public String Home(Model model) {
         List<GuestBookDTO> MsgList = guestBookService.findGuestBookList();
-        if(!MsgList.isEmpty()) model.addAttribute("MsgList", MsgList);
+        if (!MsgList.isEmpty()) model.addAttribute("MsgList", MsgList);
 
         List<String> photoList = homeService.PhotoList();
         model.addAttribute("PhotoList", photoList);
@@ -49,5 +47,22 @@ public class HomeController {
         List<String> photoList = homeService.PhotoList();
         model.addAttribute("PhotoList", photoList);
         return "photoBox";
+    }
+
+    @PostMapping("/pwdCheck/{id}")
+    @ResponseBody
+    public Boolean MessagePwdCheck(@RequestBody String pwd, @PathVariable Long id) {
+        GuestBook Message = guestBookService.findGuestBook(id);
+        if(Message.getCmtPwd().equals(pwd))
+            return true;
+        else
+            return false;
+    }
+
+    @GetMapping("/msgDelete/{id}/{pwd}")
+    public String MessageDelete(@PathVariable Long id, @PathVariable String pwd) {
+        GuestBook Message = guestBookService.findGuestBook(id);
+        guestBookService.MsgDelete(Message);
+        return "redirect:/";
     }
 }

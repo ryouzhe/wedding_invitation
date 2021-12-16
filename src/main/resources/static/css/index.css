@@ -203,6 +203,72 @@ body {
   cursor: pointer;
 }
 
+.popup_wrap {
+  position: fixed;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.popup_box {
+  width: 35%;
+  height: 20%;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  text-align: center;
+  z-index: 2;
+}
+
+.popup_box ul {
+  list-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0% 0% 2% 0%;
+  width: 80%;
+}
+
+.popup_box li {
+  border-bottom: 1px solid gray;
+  padding: 10px 0;
+}
+
+.popup_box_span {
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+  font-size: 0.9rem;
+}
+
+.popup_box input {
+  background-color: whitesmoke;
+  border: none;
+  width: 60%;
+}
+
+.popup_box input:focus {
+  outline: none;
+}
+
+.popup_alert {
+  display: inline-block;
+  color: whitesmoke;
+  padding-bottom: 20px;
+}
+
+.popup_btn {
+  background-color: #cdad85;
+  border: none;
+  width: 35%;
+  height: 4vh;
+  box-shadow: 1px 1px 1px black;
+  transition-duration: 0.3s;
+}
+
 @media (max-width: 500px) {
   body {
     background-image: url("../img/leaf.gif");
@@ -259,5 +325,10 @@ body {
 
   .item_MessageList div {
     background-color: transparent;
+  }
+
+  .popup_box {
+    width: 80%;
+    height: 27%;
   }
 }

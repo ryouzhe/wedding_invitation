@@ -25,4 +25,6 @@ public class GuestBookRepository {
         return em.createQuery("select g from GuestBook g", GuestBook.class)
                 .getResultList();
     }
+
+    public void delete(GuestBook guestBook) { em.remove(guestBook); }
 }
